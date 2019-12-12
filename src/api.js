@@ -11,13 +11,23 @@ const createItem = function(name){
         headers: {'Content-Type': 'application/json'},
         body: newItem
 });
+};
+const updateItem = function(id, updateData){
+    let updateDataString = JSON.stringify(updateData);
+    return fetch(`${BASE_URL}/items/${id}`, {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        body: updateDataString
+    });
+
+};
     
     
 
-};
 
 
 export default {
   getItems,
-  createItem
+  createItem,
+  updateItem
 };
