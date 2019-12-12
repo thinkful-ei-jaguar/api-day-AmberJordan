@@ -7,8 +7,8 @@ import shoppingList from './shopping-list';
 
 const main = function () {
 
-  shoppingList.bindEventListeners();
+
+shoppingList.bindEventListeners();
   shoppingList.render();
 };
-
 $(main);
