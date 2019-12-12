@@ -19,7 +19,12 @@ const updateItem = function(id, updateData){
         headers: {'Content-Type': 'application/json'},
         body: updateDataString
     });
+};
 
+const deleteItem = function(id){
+  return fetch(`${BASE_URL}/items/${id}`, {
+    method: 'DELETE',
+  });
 };
     
     
@@ -29,5 +34,6 @@ const updateItem = function(id, updateData){
 export default {
   getItems,
   createItem,
-  updateItem
+  updateItem,
+  deleteItem
 };
