@@ -1,5 +1,30 @@
 const BASE_URL = 'https://thinkful-list-api.herokuapp.com/jordan';
 
+function listApiFetch(...args){
+    let error;
+    return fetch(...args)
+     .then(res => {
+         if (!res.ok){
+             console.error = {code: res.status};
+         if (!res('content-type').includes('json')){
+             error.message = res.statusText;
+             return Promise.reject(error);
+         }
+             
+         }
+         return res.json();
+     })
+
+     .then(data -> {
+         if(error){
+             error.message = data.message;
+             return Promise.reject(error);
+         }
+         return data;
+     })
+    
+}
+
 const getItems = function(){
   return fetch(`${BASE_URL}/items`);
 };
